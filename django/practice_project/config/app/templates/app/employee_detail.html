@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Employee Detail{% endblock title %}
+
+{% block content %}
+
+<h3 class="cover-heading">{{ employee.name }}'s Details</h3>
+<br>
+<p class="lead"><u>Email</u></p>
+<p class="lead">{{ employee.email }}</p>
+<p class="lead"><u>Phone</u></p>
+<p class="lead">{{ employee.phone }}</p>
+<p class="lead"><u>Department</u></p>
+<p class="lead">{{ employee.department }}</p>
+<a class="btn btn-link" href="{% url 'app:update' pk=employee.id %}">Edit</a>
+<a class="btn btn-link" href="{% url 'app:delete' pk=employee.id %}">Delete</a>
+
+{% endblock content %}

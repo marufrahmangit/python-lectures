@@ -1,0 +1,109 @@
+deployment (pythonanywhere.com)
+
+github
+------
+tips: create a directory and copy project directory to it
+
+(using gitbash)
+
+cd /directory/
+
+git init 
+
+git add .
+
+git commit . -m '<some text>'
+
+git remote add origin https://github.com/<user>/<repository>.git
+
+git push -u origin main
+	note: permission denied error 403->windows->credential manager-> remove local github account 	and try command again
+
+pythonanywhere
+--------------
+console->bash
+
+mkvirtualenv --python=python3.9 myproj (version can vary)
+
+pip list
+
+pip install -U django==4.0 (version can vary-based on project)
+
+pip install <other libraries>
+
+git clone https://github.com/<user>/<repository>.git
+	note: copy the link from github repo.
+
+	note: check files-> cd <project directory> -> ls
+
+python manage.py migrate
+
+python manage.py makemigrations <app name>
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+go to dashboard -> web -> add a new web app
+	note: create the app using 'manual configuration'
+
+virtualenv: /home/munemmaruf/.virtualenvs/myproj
+
+code:
+source code: 
+WSGI configuration file: 
+open the file and edit it:
+delete hello world code and edit as following example:
+
+# +++++++++++ DJANGO +++++++++++
+# To use your own django app use code like this:
+import os
+import sys
+#
+## assuming your django settings file is at '/home/munemmaruf/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/munemmaruf/mysite/manage.py'
+path = '/home/munemmaruf/django-deployment-example/project_five_passwords/config'
+if path not in sys.path:
+    sys.path.append(path)
+    
+os.chdir(path)
+os.environ.setdefault("DJANGO_SETTINGS_MODULE","project_five_passwords.settings")
+
+import django
+django.setup()
+#
+#os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+#
+## then:
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+Save the file
+
+	note: may need to set ALLOWED_HOSTS = ['<host name>'] in settings.py file
+		example: <munemmaruf.pythonanywhere.com>
+
+Static files:
+(admin)
+URL: /static/admin
+Directory: /home/munemmaruf/.virtualenvs/myproj/lib/python3.9/site-packages/django/contrib/admin/static/admin
+
+(custom)
+URL: /static/
+Directory: /home/munemmaruf/django-deployment-example/project_five_passwords/config/static
+
+	note: if directory does not exist-> Create New directory under project name: static
+
+set DEBUG = False in settings.py file
+
+NOTE: RELOAD WEB APP to apply changes to the site
+
+
+
+
+
+
+
+
+
+

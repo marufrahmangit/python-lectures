@@ -1,0 +1,18 @@
+Django Stuff
+-----------------------------
+
+Faker library: for populating dummy data
+pip install Faker
+faker.readthedocs.io
+
+django template filters:
+docs.djangoproject.../templates/#syntax
+
+password hash libraries:
+pip install bcrypt 
+pip install django[argon2]
+(check implementation from project_five_passwords settings.py file)
+
+imaging library
+pip install pillow
+html form enctype="multipart/form-data" is required to upload image from a form

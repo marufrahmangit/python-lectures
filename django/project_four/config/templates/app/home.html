@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% block titleblock %}Home{% endblock %}
+{% block content %}
+    <h1>Welcome to Home</h1>
+    <p><em>The following are examples of template filter</em></p>
+    <p>{{ text }}</p>
+<!-- using python method to make text upper case-->
+    <p>{{ text|upper }}</p>
+    <p>{{ number }}</p>
+<!-- using python method to add a number-->
+    <p>{{ number|add:'99' }}</p>
+<!-- using custom filter method from templatetags/my_filters-->
+    <p>{{ text|cut:'world' }}</p>
+{% endblock %}

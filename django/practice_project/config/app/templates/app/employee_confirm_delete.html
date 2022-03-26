@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Confirm Delete {% endblock title %}
+
+{% block content %}
+<h1>Delete {{ employee.name }}?</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-link" value="Delete">
+    <a class="btn btn-link" href="{% url 'app:employee' pk=employee.pk  %}">Cancel</a>
+</form>
+<br>
+<p></p>
+
+{% endblock content %}

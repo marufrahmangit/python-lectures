@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Employee Form{% endblock title %}
+
+{% block content %}
+
+<h3 class="cover-heading">
+{% if not form.instance.pk %}
+Create Employee
+{% else %}
+Update Employee
+{% endif %}
+</h3>
+
+<br>
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class="btn btn-primary" value="Submit">
+  <a class="btn btn-link" href="{% url 'app:employee' pk=employee.pk  %}">Cancel</a>
+</form>
+
+{% endblock content %}

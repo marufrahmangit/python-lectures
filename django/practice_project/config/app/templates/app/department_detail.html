@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Department Detail{% endblock title %}
+
+{% block content %}
+
+<h3 class="cover-heading">{{ department.name }} Department</h3>
+<br>
+
+<p class="lead"><u>Employees</u></p>
+{% for employee in department.employees.all %}
+    <p class="lead">{{ employee.name }}</p>
+{% endfor %}
+<a class="btn btn-link" href="{% url 'app:departments' %}">Back</a>
+
+{% endblock content %}

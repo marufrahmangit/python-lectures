@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock title %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
+</head>
+<body class="text-center">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand"><a class="nav-link active" href="{% url 'home' %}">DJANGO</a></h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link" href="{% url 'app:employees' %}">Employees</a>
+                <a class="nav-link" href="{% url 'app:departments' %}">Departments</a>
+                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="{% url 'admin:index' %}" target="_blank">Admin</a>
+            </nav>
+        </div>
+    </header>
+    <main role="main" class="inner cover">
+        {% block content %}
+
+        {% endblock content %}
+    </main>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Developed by <a href="http://mmaruf.herokuapp.com/" target="_blank">Maruf</a>.</p>
+        </div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

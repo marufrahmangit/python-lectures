@@ -1,0 +1,20 @@
+goal: insert dummy data
+
+python shell
+-------------
+
+python manage.py shell
+
+from AppTwo.models import Topic
+
+print(Topic.objects.all())
+	result: <QuerySet []>
+
+t = Topic(top_name="Social Network")
+t.save()
+
+print(Topic.objects.all())
+	result: <QuerySet []>
+
+quit()
+
